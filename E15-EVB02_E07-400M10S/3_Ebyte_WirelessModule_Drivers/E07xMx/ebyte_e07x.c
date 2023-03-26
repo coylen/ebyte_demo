@@ -84,11 +84,12 @@ typedef struct {
     uint8e_t test0;      // Various Test Settings
 } RF_SETTINGS;
 
+//TODO SETUP
 static RF_SETTINGS E07x_InitSetting = {                                         //MISSING 16/16 sync mode  FREND0 0x10  CHANNR 0x00 FREND1 0x56
-    0x06,  // IOCFG0        GDO0 Output Pin Configuration                       SET 0x01  IOCFG1 & 2 0x6f
-    0x47,  // FIFOTHR       RX FIFO and TX FIFO Thresholds
-    0x7A,  // SYNC1         Sync Word, High Byte
-    0x0E,  // SYNC0         Sync Word, Low Byte
+    0x06,  // IOCFG0        GDO0 Output Pin Configuration                       SET 0x01 (asserts on FIFO threshold) IOCFG1 & 2 0x6f
+    0x47,  // FIFOTHR       RX FIFO and TX FIFO Thresholds                      //HACK 0x01 asserts on 8 bytes is that enough for length?
+    0x7A,  // SYNC1         Sync Word, High Byte                                //HACK 0x55
+    0x0E,  // SYNC0         Sync Word, Low Byte                                 //HACK ox99
     0x14,  // PKTLEN        Packet Length                                       SET 0x00
     0x05,  // PKTCTRL0      Packet Automation Control                           SET  0x02 infinite packet
     0x06,  // FSCTRL1       Frequency Synthesizer Control                       SET 0x08
