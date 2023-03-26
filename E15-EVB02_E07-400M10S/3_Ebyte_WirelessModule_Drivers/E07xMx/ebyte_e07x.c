@@ -84,34 +84,34 @@ typedef struct {
     uint8e_t test0;      // Various Test Settings
 } RF_SETTINGS;
 
-static RF_SETTINGS E07x_InitSetting = {
-    0x06,  // IOCFG0        GDO0 Output Pin Configuration
+static RF_SETTINGS E07x_InitSetting = {                                         //MISSING 16/16 sync mode  FREND0 0x10  CHANNR 0x00 FREND1 0x56
+    0x06,  // IOCFG0        GDO0 Output Pin Configuration                       SET 0x01  IOCFG1 & 2 0x6f
     0x47,  // FIFOTHR       RX FIFO and TX FIFO Thresholds
     0x7A,  // SYNC1         Sync Word, High Byte
     0x0E,  // SYNC0         Sync Word, Low Byte
-    0x14,  // PKTLEN        Packet Length
-    0x05,  // PKTCTRL0      Packet Automation Control
-    0x06,  // FSCTRL1       Frequency Synthesizer Control
+    0x14,  // PKTLEN        Packet Length                                       SET 0x00
+    0x05,  // PKTCTRL0      Packet Automation Control                           SET  0x02 infinite packet
+    0x06,  // FSCTRL1       Frequency Synthesizer Control                       SET 0x08
     0x10,  // FREQ2         Frequency Control Word, High Byte
     0xB1,  // FREQ1         Frequency Control Word, Middle Byte
     0x3B,  // FREQ0         Frequency Control Word, Low Byte
     0xF5,  // MDMCFG4       Modem Configuration
-    0x83,  // MDMCFG3       Modem Configuration
-    0x13,  // MDMCFG2       Modem Configuration
-    0x02,  // MDMCFG1       Modem Configuration
-    0x31,  // DEVIATN       Modem Deviation Setting
-    0x18,  // MCSM0         Main Radio Control State Machine Configuration
-    0x16,  // FOCCFG        Frequency Offset Compensation Configuration
-    0x43,  // AGCCTRL2      AGC Control
-    0x49,  // AGCCTRL1      AGC Control
+    0x83,  // MDMCFG3       Modem Configuration                                 SET 0xF8 defaukt bitrate
+    0x13,  // MDMCFG2       Modem Configuration      
+    0x02,  // MDMCFG1       Modem Configuration                                 SET 0x02   MISSING MDMCFG0 0xF8  
+    0x31,  // DEVIATN       Modem Deviation Setting                             SET 0x47
+    0x18,  // MCSM0         Main Radio Control State Machine Configuration      SET 0x08
+    0x16,  // FOCCFG        Frequency Offset Compensation Configuration         SET 0x16
+    0x43,  // AGCCTRL2      AGC Control                                         SET 0xC7
+    0x49,  // AGCCTRL1      AGC Control                                         SET 0x00  MISSING AGCCTRL0 0xB2
     0xFB,  // WORCTRL       Wake On Radio Control
-    0xE9,  // FSCAL3        Frequency Synthesizer Calibration
-    0x2A,  // FSCAL2        Frequency Synthesizer Calibration
-    0x00,  // FSCAL1        Frequency Synthesizer Calibration
-    0x1F,  // FSCAL0        Frequency Synthesizer Calibration
-    0x81,  // TEST2         Various Test Settings
-    0x35,  // TEST1         Various Test Settings
-    0x09,  // TEST0         Various Test Settings
+    0xE9,  // FSCAL3        Frequency Synthesizer Calibration                   SET 0xE9
+    0x2A,  // FSCAL2        Frequency Synthesizer Calibration                   Set 0x2A
+    0x00,  // FSCAL1        Frequency Synthesizer Calibration                   SET 0x00
+    0x1F,  // FSCAL0        Frequency Synthesizer Calibration                   SET 0x1F
+    0x81,  // TEST2         Various Test Settings                               SET 0x81
+    0x35,  // TEST1         Various Test Settings                               SET 0x35
+    0x09,  // TEST0         Various Test Settings                               SET 0x09 MISSING PKTCTRL1 0x80 ADDR 0
 };
 
 

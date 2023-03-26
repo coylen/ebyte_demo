@@ -112,6 +112,8 @@ int main( void )
     DEBUG( "===== This is an example of wireless transmission ==== \r\n" );
     DEBUG( "Please push button1 or button2 \r\n" );
     DEBUG( "Waiting ........ \r\n" );
+
+    
     while( 1 )
     {
         /* key event response */
