@@ -676,6 +676,7 @@ static uint8e_t E07x_SetOutputPower( int8e_t power )
 static uint8e_t E07x_Config( uint32e_t frequency , uint32e_t data_rate , uint32e_t frequency_dev ,uint32e_t bandwidth, 
                               int8e_t output_power , uint16e_t preamble_size, uint16e_t sync_word , uint8e_t crc )
 {
+    //TODO MESS HERE
     uint8e_t result ;  
     uint8e_t reg_value;
     
